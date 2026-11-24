@@ -30,4 +30,23 @@ class Vehicle(ABC):
   
   # ===== Jeepney class (Developer A) =====
   # ===== Tricycle class (Developer B) =====
+
+class Tricycle(Vehicle):
+  def __init__(self, plate_number, capacity, barangay):
+    super().__init__(plate_number, capacity)
+
+  def compute_fare(self, distance_km):
+    fare = 0
+    if distance_km > 2:
+      fare += 20
+      for i in range(distance_km - 2):
+        fare += 5
+    else:
+      fare = 20
+
+  def get_barangay(self):
+    return self.__barangay
+
+  def set_barangay(self, barangay):
+    self.__barangay = barangay
   # ===== Test code (Part 6 only) =====
